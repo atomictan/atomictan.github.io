@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Returning to homeops…</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background: #F5F3EE; color: #1C1B19;
+         display: flex; min-height: 100vh; align-items: center; justify-content: center; margin: 0; }
+  main { text-align: center; padding: 24px; }
+  a { display: inline-block; margin-top: 16px; padding: 12px 20px; border-radius: 12px; background: #125E5A;
+      color: #fff; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <p>Tesla sign-in finished. Returning to homeops…</p>
+  <a id="back" href="homeops://tesla-callback">Return to homeops</a>
+</main>
+<script>
+  // Hand Tesla's one-time code and state back to the homeops iPhone app. Nothing is stored or sent anywhere else.
+  var target = "homeops://tesla-callback" + window.location.search;
+  document.getElementById("back").href = target;
+  window.location.replace(target);
+</script>
+</body>
+</html>
